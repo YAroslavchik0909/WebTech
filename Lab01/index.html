@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теорія та практика графів</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/0d6efd/mind-map.png">
+    <style>
+        .hero-image {
+            height: 450px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .article-section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .article-section:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <header class="p-3 bg-white shadow-sm sticky-top">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between">
+            <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
+                <img src="https://img.icons8.com/ios-filled/40/0d6efd/mind-map.png" alt="Logo" class="me-2">
+                <span class="fs-4 fw-bold">GraphDocs</span>
+            </a>
+            <nav>
+                <ul class="nav gap-3">
+                    <li><a href="#" class="nav-link px-2 link-primary fw-medium">Головна</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark fw-medium">Документація</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark fw-medium">Приклади</a></li>
+                </ul>
+            </nav>
+
+            <button type="button" class="btn btn-success px-4 shadow-sm">Увійти</button>
+        </div>
+    </header>
+    <main class="container my-5 shadow-sm bg-white p-4 p-md-5 rounded-4">
+        <section class="mb-5">
+            <h1 class="display-3 fw-bold text-dark mb-3">Світ графів: від теорії до коду</h1>
+            <p class="lead text-secondary mb-4">Детальний розбір того, як алгоритми на графах змінюють наше уявлення про ефективність обробки даних.</p>
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" 
+                 alt="Технологічний фон" class="hero-image rounded-4 shadow">
+        </section>
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <article>
+                    <section class="article-section pt-0">
+                        <h2 class="text-primary mb-3">Основи моделювання зв'язків</h2>
+                        <p>У сучасному програмуванні граф — це не просто картинка з точками. Це структура, яка дозволяє вирішувати задачі логістики, соціальних взаємодій та навіть проектування мікросхем.</p>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">✓ Пошук найкоротшого шляху</li>
+                            <li class="list-group-item">✓ Аналіз соціальних зв'язків</li>
+                            <li class="list-group-item">✓ Оптимізація трафіку в мережах</li>
+                        </ul>
+                    </section>
+                    <section class="article-section">
+                        <h2 class="text-primary mb-3">Порівняння структур даних</h2>
+                        <p>Вибір правильного способу зберігання графа безпосередньо впливає на швидкість роботи вашого алгоритму.</p>
+                        <div class="table-responsive mt-3">
+                            <table class="table table-bordered align-middle">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Метод</th>
+                                        <th>Перевага</th>
+                                        <th>Складність пам'яті</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold text-success">Матриця суміжності</td>
+                                        <td>Миттєва перевірка зв'язку</td>
+                                        <td>O(V²)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold text-warning">Списки суміжності</td>
+                                        <td>Економія місця</td>
+                                        <td>O(V + E)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </article>
+            </div>
+            <aside class="col-lg-4">
+                <div class="sticky-top" style="top: 100px;">
+                    <div class="card border-0 bg-dark text-white p-3 mb-4 rounded-4 shadow">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3 border-bottom pb-2">Рекомендовано</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><a href="#" class="text-info text-decoration-none">Алгоритм BFS та DFS за 5 хвилин</a></li>
+                                <li class="mb-3"><a href="#" class="text-info text-decoration-none">Планарні графи у веб-дизайні</a></li>
+                                <li><a href="#" class="text-info text-decoration-none">Що таке хроматичне число?</a></li>
+                            </ul>
+                            <button class="btn btn-sm btn-outline-info w-100 mt-2">Більше статей</button>
+                        </div>
+                    </div>
+                    <div class="card border-0 shadow-sm p-3 rounded-4 bg-warning-subtle">
+                        <div class="card-body text-dark">
+                            <h3 class="h5 mb-3 fw-bold text-warning-emphasis">Новини теорії графів</h3>
+                            <form action="#" method="post">
+                                <div class="mb-3">
+                                    <label for="user-email" class="form-label small fw-bold">Ваш робочий Email:</label>
+                                    <input type="email" id="user-email" class="form-control border-warning-subtle" name="email" required placeholder="name@example.com">
+                                </div>
+                                <button type="submit" class="btn btn-warning w-100 fw-bold shadow-sm">Підписатися на дайджест</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer class="bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <span class="fs-5 fw-bold">GraphDocs</span>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://www.facebook.com/zelenskyy.official/" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/facebook--v1.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/cristiano/" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram"></a>
+                        <a href="https://github.com/YAroslavchik0909/WebTech" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/github.png" alt="GitHub"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
