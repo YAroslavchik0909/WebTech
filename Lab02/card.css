@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --accent-color: #2f53a1;
+  --text-main: #212529;
+  --text-muted: #6c757d;
+  --card-radius: 16px;
+  --base-space: 20px;
+  --transition-speed: 200ms;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  width: 280px;
+  padding: var(--base-space);
+  border-radius: var(--card-radius);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: calc(var(--card-radius) - 6px);
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.card-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #495057;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-price {
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.card-action {
+  margin-top: auto;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out;
+}
+
+.card-action:hover {
+  background-color: #1e3a7a;
+}
+
+.card-action:focus-visible {
+  outline: 3px solid #9db2e0;
+  outline-offset: 2px;
+}
+
+.card-action:focus:not(:focus-visible) {
+  outline: none;
+}
