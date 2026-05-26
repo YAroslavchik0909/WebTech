@@ -29,7 +29,7 @@ function parseHex(str) {
 function parseRgb(str) {
     const match = str.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i);
     if (!match) return null;
-    const r = parseInt(match[1], 10);
+    const r = prseInt(match[1], 10);
     const g = parseInt(match[2], 10);
     const b = parseInt(match[3], 10);   
     if (r >= 0 && r <= 255 && g >= 0 && g <= 255 && b >= 0 && b <= 255) {

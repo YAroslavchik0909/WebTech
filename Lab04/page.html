@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; padding-top: 50px; }
+        .todo-container { background: white; width: 380px; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        form { display: flex; gap: 10px; margin-bottom: 20px; }
+        input[type="text"] { flex-grow: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button[type="submit"] { padding: 8px 12px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        ul { list-style-type: none; padding: 0; }
+        
+        li { background: #f9f9f9; padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+        li span { flex-grow: 1; word-break: break-word; }
+        li.done span { text-decoration: line-through; color: #888; }
+        
+        .delete-btn { background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+        p { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; font-size: 14px; color: #555; }
+        #clear-done { background-color: #6c757d; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="todo-container">
+    <h2>Список задач</h2>
+    
+    <form id="add-form">
+      <input id="new-task" type="text" placeholder="Нова задача">
+      <button type="submit">Додати</button>
+    </form>
+
+    <ul id="task-list"></ul>
+
+    <p>
+      <span id="counter">0 з 0 завершено</span>
+      <button id="clear-done">Видалити завершені</button>
+    </p>
+</div>
+
+<script>
+    const addForm = document.getElementById('add-form');
+    const newTaskInput = document.getElementById('new-task');
+    const taskList = document.getElementById('task-list');
+    const counter = document.getElementById('counter');
+    const clearDoneBtn = document.getElementById('clear-done');
+
+    function updateCounter() {
+        const total = taskList.children.length;
+        const completed = taskList.querySelectorAll('li.done').length;
+        counter.textContent = `${completed} з ${total} завершено`;
+    }
+
+    addForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const taskText = newTaskInput.value.trim();
+        
+        if (taskText === '') { 
+            newTaskInput.value = '';
+            return; 
+        }
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <input type="checkbox" class="task-checkbox">
+            <span>${taskText}</span>
+            <button class="delete-btn">Видалити</button>
+        `;
+
+        taskList.appendChild(li);
+        newTaskInput.value = '';
+        updateCounter();
+    });
+
+    taskList.addEventListener('click', function(e) {
+        const li = e.target.closest('li');
+        if (!li) return;
+        if (e.target.classList.contains('task-checkbox')) {
+            if (e.target.checked) {
+                li.classList.add('done');
+            } else {
+                li.classList.remove('done');
+            }
+            updateCounter();
+        }
+
+        if (e.target.classList.contains('delete-btn')) {
+            li.remove();
+            updateCounter();
+        }
+    });
+
+    clearDoneBtn.addEventListener('click', function() {
+        const completedTasks = taskList.querySelectorAll('li.done');
+        completedTasks.forEach(task => task.remove());
+        updateCounter();
+    });
+</script>
+
+</body>
+</html>
